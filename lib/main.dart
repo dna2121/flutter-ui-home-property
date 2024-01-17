@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_home_property/color.dart';
 
 import 'package:get/get.dart';
 
@@ -11,8 +12,7 @@ void main() {
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       theme: ThemeData(
-        fontFamily: 'Outfit',
-      ),
+          fontFamily: 'Outfit', scaffoldBackgroundColor: AppColor.background),
     ),
   );
 }

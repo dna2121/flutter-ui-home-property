@@ -22,6 +22,7 @@ flutter:
 
   assets:
     - assets/svg/
+    - assets/image/
 
   fonts:
     - family: Outfit
