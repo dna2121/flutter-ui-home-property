@@ -220,32 +220,48 @@ class HomeOrderView extends GetView<HomeController> {
                       value: 0.5,
                       valueColor: AppColor.baseGreen,
                     ),
-                    MenuCard(
-                      colorBaseContainer: AppColor.baseWhite,
-                      colorText1: AppColor.baseGreen,
-                      colorText2: AppColor.baseGreen,
-                      colorShadowContainer:
-                          const Color.fromRGBO(248, 248, 248, 1),
-                      positionedBottom: -100,
-                      imageAsset: 'assets/image/pembangunan.png',
-                      tahap: 'Pembangunan',
-                      percent: '0',
-                      value: 0,
-                      valueColor: AppColor.gray400,
-                    ),
-                    MenuCard(
-                      colorBaseContainer: AppColor.baseWhite,
-                      colorText1: AppColor.baseGreen,
-                      colorText2: AppColor.baseGreen,
-                      colorShadowContainer:
-                          const Color.fromRGBO(248, 248, 248, 1),
-                      positionedBottom: -100,
-                      imageAsset: 'assets/image/akad.png',
-                      tahap: 'Akad & Serah Terima',
-                      percent: '0',
-                      value: 0,
-                      valueColor: AppColor.gray400,
-                    ),
+                    Stack(children: [
+                      MenuCard(
+                        colorBaseContainer: AppColor.baseWhite,
+                        colorText1: AppColor.baseGreen,
+                        colorText2: AppColor.baseGreen,
+                        colorShadowContainer:
+                            const Color.fromRGBO(248, 248, 248, 1),
+                        positionedBottom: -100,
+                        imageAsset: 'assets/image/pembangunan.png',
+                        tahap: 'Pembangunan',
+                        percent: '0',
+                        value: 0,
+                        valueColor: AppColor.gray400,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(13),
+                          color: Colors.grey.withOpacity(0.2),
+                        ),
+                      )
+                    ]),
+                    Stack(children: [
+                      MenuCard(
+                        colorBaseContainer: AppColor.baseWhite,
+                        colorText1: AppColor.baseGreen,
+                        colorText2: AppColor.baseGreen,
+                        colorShadowContainer:
+                            const Color.fromRGBO(248, 248, 248, 1),
+                        positionedBottom: -100,
+                        imageAsset: 'assets/image/akad.png',
+                        tahap: 'Akad & Serah Terima',
+                        percent: '0',
+                        value: 0,
+                        valueColor: AppColor.gray400,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(13),
+                          color: Colors.grey.withOpacity(0.2),
+                        ),
+                      )
+                    ]),
                   ],
                 ),
               )

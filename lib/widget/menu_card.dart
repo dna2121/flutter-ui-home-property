@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'progress_percentage.dart';
 
+// ignore: must_be_immutable
 class MenuCard extends StatelessWidget {
   MenuCard(
       {super.key,

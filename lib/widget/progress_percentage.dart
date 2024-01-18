@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../color.dart';
 
+// ignore: must_be_immutable
 class ProgressPercentage extends StatelessWidget {
   ProgressPercentage(
       {super.key,
@@ -43,7 +44,8 @@ class ProgressPercentage extends StatelessWidget {
                 children: [
               TextSpan(
                   text: percent,
-                  style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12)),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w600, fontSize: 12)),
               const TextSpan(
                   text: "%",
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 5))
