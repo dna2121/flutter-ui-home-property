@@ -77,7 +77,7 @@ class HomeView extends GetView<HomeController> {
               ),
               const SizedBox(height: 10),
               ElevatedButton.icon(
-                onPressed: () => Get.toNamed(Routes.HOMEORDER),
+                onPressed: () => Get.offAllNamed(Routes.HOMEORDER),
                 icon: SvgPicture.asset('assets/svg/Search.svg'),
                 label: const Text(
                   "Eksplor Properti",

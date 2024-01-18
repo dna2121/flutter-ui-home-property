@@ -7,4 +7,11 @@ class HomeController extends GetxController {
     tabIndex.value = index;
     update();
   }
+
+  var percent = 0.5.obs;
+
+  void updatePercent(double newPercent) {
+    percent.value = newPercent;
+  }
+
 }

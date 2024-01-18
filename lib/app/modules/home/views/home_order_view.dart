@@ -1,4 +1,4 @@
-import 'package:carousel_slider/carousel_slider.dart';
+// import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_ui_home_property/app/modules/home/controllers/home_controller.dart';
@@ -8,6 +8,8 @@ import 'package:get/get.dart';
 
 import '../../../../color.dart';
 import '../../../../widget/banners.dart';
+import '../../../../widget/bottom_nav_bar.dart';
+import '../../../../widget/menu_card.dart';
 import '../../../../widget/slider_content1.dart';
 import '../../../../widget/slider_content2.dart';
 import '../../../../widget/slider_content3.dart';
@@ -18,41 +20,10 @@ class HomeOrderView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     var current = 0.obs;
-    final CarouselController carouselController = CarouselController();
+    // final CarouselController carouselController = CarouselController();
 
     return Scaffold(
-      bottomNavigationBar: Obx(
-        () => BottomNavigationBar(
-            onTap: controller.changeTabIndex,
-            currentIndex: controller.tabIndex.value,
-            items: [
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/svg/Home-outline.svg'),
-                activeIcon: SvgPicture.asset('assets/svg/Home-filled.svg'),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/svg/building-3.svg'),
-                activeIcon: SvgPicture.asset('assets/svg/Building-filled.svg'),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/svg/Document-outline.svg'),
-                activeIcon: SvgPicture.asset('assets/svg/Document-filled.svg'),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/svg/Cart-outline.svg'),
-                activeIcon: SvgPicture.asset('assets/svg/Cart-filled.svg'),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: SvgPicture.asset('assets/svg/User-outline.svg'),
-                activeIcon: SvgPicture.asset('assets/svg/User-filled.svg'),
-                label: '',
-              ),
-            ]),
-      ),
+      bottomNavigationBar: BottomNavBar(controller: controller),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -113,17 +84,6 @@ class HomeOrderView extends GetView<HomeController> {
               // slider
               Column(
                 children: [
-                  // CarouselSlider(
-                  //   // carouselController: carouselController,
-                  //   options: CarouselOptions(
-                  //     aspectRatio: 19/10,
-                  //       enableInfiniteScroll: false,
-                  //       onPageChanged: (index, reason) {
-                  //         current.value = index;
-                  //       }),
-                  //   items: [SliderContent1(), SliderContent2()],
-                  // ),
-
                   SizedBox(
                     height: 190,
                     child: PageView(
@@ -221,6 +181,74 @@ class HomeOrderView extends GetView<HomeController> {
                   )
                 ],
               ),
+
+              const SizedBox(height: 20),
+
+              // transaction menu
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  shrinkWrap: true,
+                  mainAxisSpacing: 20,
+                  crossAxisSpacing: 15,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: [
+                    MenuCard(
+                      colorBaseContainer: AppColor.baseGreen,
+                      colorShadowContainer: const Color.fromRGBO(47, 69, 48, 1),
+                      colorText1: AppColor.baseWhite,
+                      colorText2: AppColor.baseWhite,
+                      positionedRight: -75,
+                      positionedTop: -30,
+                      imageAsset: 'assets/image/pemesanan.png',
+                      tahap: 'Pemesanan',
+                      percent: '100',
+                      value: 1,
+                      valueColor: Colors.red,
+                    ),
+                    MenuCard(
+                      colorBaseContainer: AppColor.baseWhite,
+                      colorText1: AppColor.baseGreen,
+                      colorText2: AppColor.baseGreen,
+                      colorShadowContainer:
+                          const Color.fromRGBO(248, 248, 248, 1),
+                      positionedBottom: -100,
+                      imageAsset: 'assets/image/administrasi.png',
+                      tahap: 'Administrasi',
+                      percent: '50',
+                      value: 0.5,
+                      valueColor: AppColor.baseGreen,
+                    ),
+                    MenuCard(
+                      colorBaseContainer: AppColor.baseWhite,
+                      colorText1: AppColor.baseGreen,
+                      colorText2: AppColor.baseGreen,
+                      colorShadowContainer:
+                          const Color.fromRGBO(248, 248, 248, 1),
+                      positionedBottom: -100,
+                      imageAsset: 'assets/image/pembangunan.png',
+                      tahap: 'Pembangunan',
+                      percent: '0',
+                      value: 0,
+                      valueColor: AppColor.gray400,
+                    ),
+                    MenuCard(
+                      colorBaseContainer: AppColor.baseWhite,
+                      colorText1: AppColor.baseGreen,
+                      colorText2: AppColor.baseGreen,
+                      colorShadowContainer:
+                          const Color.fromRGBO(248, 248, 248, 1),
+                      positionedBottom: -100,
+                      imageAsset: 'assets/image/akad.png',
+                      tahap: 'Akad & Serah Terima',
+                      percent: '0',
+                      value: 0,
+                      valueColor: AppColor.gray400,
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
