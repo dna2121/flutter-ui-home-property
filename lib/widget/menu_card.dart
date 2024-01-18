@@ -17,7 +17,10 @@ class MenuCard extends StatelessWidget {
       required this.tahap,
       required this.percent,
       required this.value,
-      required this.valueColor, this.onTap});
+      required this.valueColor,
+      this.onTap,
+      required this.bgcolor,
+      required this.percentColor});
 
   double? positionedRight;
   double? positionedTop;
@@ -27,6 +30,8 @@ class MenuCard extends StatelessWidget {
   Color colorShadowContainer;
   Color colorText1;
   Color colorText2;
+  Color bgcolor;
+  Color percentColor;
 
   String imageAsset;
   String tahap;
@@ -81,16 +86,19 @@ class MenuCard extends StatelessWidget {
                           TextSpan(
                               text: tahap,
                               style: TextStyle(
-                                  fontWeight: FontWeight.w500, color: colorText2))
+                                  fontWeight: FontWeight.w500,
+                                  color: colorText2))
                         ])),
                   ),
                   const Spacer(),
                   Padding(
                     padding: const EdgeInsets.only(left: 15, bottom: 15),
                     child: ProgressPercentage(
+                      bgcolor: bgcolor,
                       percent: percent,
                       value: value,
                       valueColor: valueColor,
+                      percentColor: percentColor,
                     ),
                   )
                 ],

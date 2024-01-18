@@ -8,10 +8,14 @@ class ProgressPercentage extends StatelessWidget {
       {super.key,
       required this.percent,
       required this.value,
-      required this.valueColor});
+      required this.valueColor,
+      required this.bgcolor,
+      required this.percentColor});
 
   double value;
   Color valueColor;
+  Color bgcolor;
+  Color percentColor;
   String percent;
 
   @override
@@ -20,9 +24,10 @@ class ProgressPercentage extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             shape: BoxShape.circle,
-            boxShadow: [
+            color: bgcolor,
+            boxShadow: const [
               BoxShadow(
                 color: Color.fromRGBO(9, 19, 10, 0.16),
                 offset: Offset(0, 5),
@@ -40,7 +45,7 @@ class ProgressPercentage extends StatelessWidget {
         ),
         RichText(
             text: TextSpan(
-                style: const TextStyle(fontFamily: 'Outfit'),
+                style: TextStyle(fontFamily: 'Outfit', color: percentColor),
                 children: [
               TextSpan(
                   text: percent,

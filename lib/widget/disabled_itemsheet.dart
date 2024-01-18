@@ -1,4 +1,3 @@
-
 // ignore_for_file: must_be_immutable
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -39,6 +38,8 @@ class DisabledItemsheet extends StatelessWidget {
             const Spacer(),
             Text(
               text1,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
               style: const TextStyle(
                   fontSize: 10,
                   color: AppColor.baseGreen,
@@ -46,6 +47,8 @@ class DisabledItemsheet extends StatelessWidget {
             ),
             Text(
               text2,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
               style: const TextStyle(
                   fontSize: 10,
                   color: AppColor.baseGreen,
@@ -57,7 +60,7 @@ class DisabledItemsheet extends StatelessWidget {
       Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(13),
-          color: Colors.grey.shade100.withOpacity(0.2),
+          color: Colors.grey.shade100.withOpacity(0.3),
         ),
       )
     ]);

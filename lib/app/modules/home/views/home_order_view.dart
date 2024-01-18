@@ -13,6 +13,7 @@ import '../../../../widget/bottom_nav_bar.dart';
 import '../../../../widget/bottomsheets.dart';
 import '../../../../widget/disabled_itemsheet.dart';
 import '../../../../widget/menu_card.dart';
+import '../../../../widget/progress_itemsheet.dart';
 import '../../../../widget/slider_content1.dart';
 import '../../../../widget/slider_content2.dart';
 import '../../../../widget/slider_content3.dart';
@@ -197,7 +198,9 @@ class HomeOrderView extends GetView<HomeController> {
                   crossAxisSpacing: 15,
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
+                    // menu tahap pemesanan
                     MenuCard(
+                      bgcolor: AppColor.baseGreen,
                       onTap: () {
                         Get.bottomSheet(
                             backgroundColor: AppColor.gray100,
@@ -231,10 +234,14 @@ class HomeOrderView extends GetView<HomeController> {
                       imageAsset: 'assets/image/pemesanan.png',
                       tahap: 'Pemesanan',
                       percent: '100',
+                      percentColor: AppColor.baseWhite,
                       value: 1,
                       valueColor: Colors.red,
                     ),
+
+                    // menu tahap administrasi
                     MenuCard(
+                      bgcolor: AppColor.baseWhite,
                       onTap: () {
                         Get.bottomSheet(
                             backgroundColor: AppColor.gray100,
@@ -280,51 +287,134 @@ class HomeOrderView extends GetView<HomeController> {
                       imageAsset: 'assets/image/administrasi.png',
                       tahap: 'Administrasi',
                       percent: '50',
+                      percentColor: AppColor.baseGreen,
                       value: 0.5,
                       valueColor: AppColor.baseGreen,
                     ),
-                    Stack(children: [
-                      MenuCard(
-                        colorBaseContainer: AppColor.baseWhite,
-                        colorText1: AppColor.baseGreen,
-                        colorText2: AppColor.baseGreen,
-                        colorShadowContainer:
-                            const Color.fromRGBO(248, 248, 248, 1),
-                        positionedBottom: -100,
-                        imageAsset: 'assets/image/pembangunan.png',
-                        tahap: 'Pembangunan',
-                        percent: '0',
-                        value: 0,
-                        valueColor: AppColor.gray400,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13),
-                          color: Colors.grey.withOpacity(0.2),
+
+                    // menu tahap pembangunan
+                    InkWell(
+                      onTap: () {
+                        Get.bottomSheet(
+                          backgroundColor: AppColor.gray100,
+                          Bottomsheets(
+                            tahapan: 'Tahap Pembangunan',
+                            daftarmenu: 'Daftar menu tahap pembangunan rumah',
+                            children: [
+                              ProgressItemsheet(
+                                percent: '100',
+                                valuepercent: 1,
+                                text1: 'Tahap',
+                                text2: 'Persiapan',
+                              ),
+                              ProgressItemsheet(
+                                percent: '20',
+                                valuepercent: 0.2,
+                                text1: 'Tahap',
+                                text2: 'Pondasi & Struktur',
+                              ),
+                              ProgressItemsheet(
+                                percent: '30',
+                                valuepercent: 0.3,
+                                text1: 'Tahap',
+                                text2: 'Rumah Unfinished',
+                              ),
+                              ProgressItemsheet(
+                                percent: '40',
+                                valuepercent: 0.4,
+                                text1: 'Tahap',
+                                text2: 'Finishing & Interior',
+                              ),
+                              ProgressItemsheet(
+                                percent: '0',
+                                valuepercent: 0,
+                                text1: 'Tahap',
+                                text2: 'Pembersihan',
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                      child: Stack(children: [
+                        MenuCard(
+                          bgcolor: AppColor.baseWhite,
+                          colorBaseContainer: AppColor.baseWhite,
+                          colorText1: AppColor.baseGreen,
+                          colorText2: AppColor.baseGreen,
+                          colorShadowContainer:
+                              const Color.fromRGBO(248, 248, 248, 1),
+                          positionedBottom: -100,
+                          imageAsset: 'assets/image/pembangunan.png',
+                          tahap: 'Pembangunan',
+                          percent: '0',
+                          percentColor: AppColor.baseGreen,
+                          value: 0,
+                          valueColor: AppColor.gray400,
                         ),
-                      )
-                    ]),
-                    Stack(children: [
-                      MenuCard(
-                        colorBaseContainer: AppColor.baseWhite,
-                        colorText1: AppColor.baseGreen,
-                        colorText2: AppColor.baseGreen,
-                        colorShadowContainer:
-                            const Color.fromRGBO(248, 248, 248, 1),
-                        positionedBottom: -100,
-                        imageAsset: 'assets/image/akad.png',
-                        tahap: 'Akad & Serah Terima',
-                        percent: '0',
-                        value: 0,
-                        valueColor: AppColor.gray400,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(13),
-                          color: Colors.grey.withOpacity(0.2),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(13),
+                            color: Colors.grey.shade200.withOpacity(0.3),
+                          ),
+                        )
+                      ]),
+                    ),
+
+                    // menu tahap akad
+                    InkWell(
+                      onTap: () {
+                        Get.bottomSheet(
+                          backgroundColor: AppColor.gray100,
+                          Bottomsheets(
+                            tahapan: 'Tahap akad & Serah Terima',
+                            daftarmenu: 'Daftar menu tahap akad & serah terima',
+                            children: [
+                              BadgeItemsheet(
+                                  svgasset: 'assets/svg/akad.svg',
+                                  text1: 'Tahap',
+                                  text2: 'Akad',
+                                  badgelabel: ' ! '),
+                              DisabledItemsheet(
+                                  svgasset:
+                                      'assets/svg/serahterimabangunan.svg',
+                                  text1: 'Tahap',
+                                  text2: 'Serah Terima bangunan'),
+                              DisabledItemsheet(
+                                  svgasset: 'assets/svg/terimalegalitas.svg',
+                                  text1: 'Tahap',
+                                  text2: 'Serah Terima Legalitas'),
+                              DisabledItemsheet(
+                                  svgasset: 'assets/svg/komplain.svg',
+                                  text1: 'Daftar',
+                                  text2: 'Komplain')
+                            ],
+                          ),
+                        );
+                      },
+                      child: Stack(children: [
+                        MenuCard(
+                          bgcolor: AppColor.baseWhite,
+                          colorBaseContainer: AppColor.baseWhite,
+                          colorText1: AppColor.baseGreen,
+                          colorText2: AppColor.baseGreen,
+                          colorShadowContainer:
+                              const Color.fromRGBO(248, 248, 248, 1),
+                          positionedBottom: -100,
+                          imageAsset: 'assets/image/akad.png',
+                          tahap: 'Akad & Serah Terima',
+                          percent: '0',
+                          percentColor: AppColor.baseGreen,
+                          value: 0,
+                          valueColor: AppColor.baseGreen,
                         ),
-                      )
-                    ]),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(13),
+                        color: Colors.grey.shade200.withOpacity(0.3),
+                          ),
+                        )
+                      ]),
+                    ),
                   ],
                 ),
               ),
