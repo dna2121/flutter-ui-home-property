@@ -11,4 +11,6 @@ class AppColor {
   static const Color gray400 = Color.fromRGBO(226, 233, 226, 1);
 
   static const Color background = Color.fromRGBO(245, 245, 245, 1);
+  static const Color ellips = Color.fromRGBO(248, 248, 248, 1);
+
 }

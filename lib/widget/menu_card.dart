@@ -17,7 +17,7 @@ class MenuCard extends StatelessWidget {
       required this.tahap,
       required this.percent,
       required this.value,
-      required this.valueColor});
+      required this.valueColor, this.onTap});
 
   double? positionedRight;
   double? positionedTop;
@@ -35,63 +35,68 @@ class MenuCard extends StatelessWidget {
   double value;
   Color valueColor;
 
+  void Function()? onTap;
+
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(13),
-      child: Container(
-        decoration: BoxDecoration(
-          color: colorBaseContainer,
-        ),
-        child: Stack(
-          children: [
-            Positioned(
-              right: positionedRight,
-              top: positionedTop,
-              bottom: positionedBottom,
-              child: Container(
-                height: 219,
-                width: 198,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: colorShadowContainer),
-              ),
-            ),
-            Align(
-                alignment: Alignment.bottomRight,
-                child: Image.asset(imageAsset)),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 15, top: 15),
-                  child: RichText(
-                      text: TextSpan(
-                          style: const TextStyle(fontFamily: 'Outfit'),
-                          children: [
-                        TextSpan(
-                            text: "Tahap\n",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontSize: 12,
-                                color: colorText1)),
-                        TextSpan(
-                            text: tahap,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, color: colorText2))
-                      ])),
+    return InkWell(
+      onTap: onTap,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(13),
+        child: Container(
+          decoration: BoxDecoration(
+            color: colorBaseContainer,
+          ),
+          child: Stack(
+            children: [
+              Positioned(
+                right: positionedRight,
+                top: positionedTop,
+                bottom: positionedBottom,
+                child: Container(
+                  height: 219,
+                  width: 198,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: colorShadowContainer),
                 ),
-                const Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15, bottom: 15),
-                  child: ProgressPercentage(
-                    percent: percent,
-                    value: value,
-                    valueColor: valueColor,
+              ),
+              Align(
+                  alignment: Alignment.bottomRight,
+                  child: Image.asset(imageAsset)),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15, top: 15),
+                    child: RichText(
+                        text: TextSpan(
+                            style: const TextStyle(fontFamily: 'Outfit'),
+                            children: [
+                          TextSpan(
+                              text: "Tahap\n",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 12,
+                                  color: colorText1)),
+                          TextSpan(
+                              text: tahap,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500, color: colorText2))
+                        ])),
                   ),
-                )
-              ],
-            )
-          ],
+                  const Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 15, bottom: 15),
+                    child: ProgressPercentage(
+                      percent: percent,
+                      value: value,
+                      valueColor: valueColor,
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

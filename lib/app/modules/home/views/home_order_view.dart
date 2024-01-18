@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import '../../../../color.dart';
 import '../../../../widget/banners.dart';
 import '../../../../widget/bottom_nav_bar.dart';
+import '../../../../widget/bottomsheets.dart';
 import '../../../../widget/menu_card.dart';
 import '../../../../widget/slider_content1.dart';
 import '../../../../widget/slider_content2.dart';
@@ -195,6 +196,11 @@ class HomeOrderView extends GetView<HomeController> {
                   physics: const NeverScrollableScrollPhysics(),
                   children: [
                     MenuCard(
+                      onTap: () {
+                        Get.bottomSheet(
+                            backgroundColor: AppColor.gray100,
+                            const Bottomsheets());
+                      },
                       colorBaseContainer: AppColor.baseGreen,
                       colorShadowContainer: const Color.fromRGBO(47, 69, 48, 1),
                       colorText1: AppColor.baseWhite,
@@ -264,7 +270,8 @@ class HomeOrderView extends GetView<HomeController> {
                     ]),
                   ],
                 ),
-              )
+              ),
+              const SizedBox(height: 40)
             ],
           ),
         ),

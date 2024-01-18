@@ -47,27 +47,11 @@ class AppbarFrame extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            Stack(
-              children: [
-                CircleAvatar(
-                    backgroundColor: AppColor.baseWhite,
-                    child: SvgPicture.asset('assets/svg/Bell.svg')),
-                Positioned(
-                    bottom: 18,
-                    left: 22,
-                    child: Container(
-                      padding: const EdgeInsets.all(4),
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Color.fromRGBO(255, 92, 92, 1),
-                      ),
-                      child: const Text('3',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          )),
-                    )),
-              ],
+            Badge(
+              label: const Text('3'),
+              child: CircleAvatar(
+                  backgroundColor: AppColor.baseWhite,
+                  child: SvgPicture.asset('assets/svg/Bell.svg')),
             )
           ],
         ),
