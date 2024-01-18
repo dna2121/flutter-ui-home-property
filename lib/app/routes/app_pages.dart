@@ -1,3 +1,4 @@
+import 'package:flutter_ui_home_property/app/modules/home/views/home_order_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/bottomsheet/bindings/bottomsheet_binding.dart';
@@ -24,6 +25,11 @@ class AppPages {
     GetPage(
       name: _Paths.HOME,
       page: () => const HomeView(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.HOMEORDER,
+      page: () => const HomeOrderView(),
       binding: HomeBinding(),
     ),
     GetPage(

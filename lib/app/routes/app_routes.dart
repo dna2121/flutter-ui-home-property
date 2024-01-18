@@ -4,6 +4,7 @@ part of 'app_pages.dart';
 abstract class Routes {
   Routes._();
   static const HOME = _Paths.HOME;
+  static const HOMEORDER = _Paths.HOMEORDER;
   static const BOTTOMSHEET = _Paths.BOTTOMSHEET;
   static const DOCUMENT = _Paths.DOCUMENT;
   static const CART = _Paths.CART;
@@ -14,6 +15,7 @@ abstract class Routes {
 abstract class _Paths {
   _Paths._();
   static const HOME = '/home';
+  static const HOMEORDER = '/home-order';
   static const BOTTOMSHEET = '/bottomsheet';
   static const DOCUMENT = '/document';
   static const CART = '/cart';
