@@ -9,11 +9,13 @@ class BadgeItemsheet extends StatelessWidget {
       {super.key,
       required this.svgasset,
       required this.text1,
-      required this.text2});
+      required this.text2,
+      required this.badgelabel});
 
   String text1;
   String text2;
   String svgasset;
+  String badgelabel;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class BadgeItemsheet extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Badge(
-            label: const Text('3'),
+            label: Text(badgelabel),
             child: CircleAvatar(
                 backgroundColor: AppColor.baseGreen,
                 child: SvgPicture.asset(svgasset)),

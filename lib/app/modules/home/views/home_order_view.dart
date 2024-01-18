@@ -7,9 +7,11 @@ import 'package:flutter_ui_home_property/widget/appbar_frame.dart';
 import 'package:get/get.dart';
 
 import '../../../../color.dart';
+import '../../../../widget/badge_itemsheet.dart';
 import '../../../../widget/banners.dart';
 import '../../../../widget/bottom_nav_bar.dart';
 import '../../../../widget/bottomsheets.dart';
+import '../../../../widget/disabled_itemsheet.dart';
 import '../../../../widget/menu_card.dart';
 import '../../../../widget/slider_content1.dart';
 import '../../../../widget/slider_content2.dart';
@@ -199,7 +201,26 @@ class HomeOrderView extends GetView<HomeController> {
                       onTap: () {
                         Get.bottomSheet(
                             backgroundColor: AppColor.gray100,
-                            const Bottomsheets());
+                            Bottomsheets(
+                              tahapan: 'Tahap Pemesanan',
+                              daftarmenu: 'Daftar menu tahap pemesanan',
+                              children: [
+                                BadgeItemsheet(
+                                    badgelabel: '3',
+                                    svgasset: 'assets/svg/bookingfee.svg',
+                                    text1: 'Booking',
+                                    text2: 'Fee'),
+                                DisabledItemsheet(
+                                    svgasset:
+                                        'assets/svg/empty-wallet-time.svg',
+                                    text1: 'Pesanan',
+                                    text2: 'Belum Bayar'),
+                                DisabledItemsheet(
+                                    svgasset: 'assets/svg/riwayatpesanan.svg',
+                                    text1: 'Riwayat',
+                                    text2: 'Pemesanan'),
+                              ],
+                            ));
                       },
                       colorBaseContainer: AppColor.baseGreen,
                       colorShadowContainer: const Color.fromRGBO(47, 69, 48, 1),
@@ -214,6 +235,42 @@ class HomeOrderView extends GetView<HomeController> {
                       valueColor: Colors.red,
                     ),
                     MenuCard(
+                      onTap: () {
+                        Get.bottomSheet(
+                            backgroundColor: AppColor.gray100,
+                            Bottomsheets(
+                              tahapan: 'Tahap Administrasi',
+                              daftarmenu: 'Daftar menu tahap administrasi',
+                              children: [
+                                BadgeItemsheet(
+                                  svgasset: 'assets/svg/ruler&pen.svg',
+                                  text1: 'Tahap',
+                                  text2: 'SPS',
+                                  badgelabel: ' ! ',
+                                ),
+                                DisabledItemsheet(
+                                    svgasset: 'assets/svg/spr.svg',
+                                    text1: 'Tahap',
+                                    text2: 'SPR'),
+                                DisabledItemsheet(
+                                    svgasset: 'assets/svg/ppjb.svg',
+                                    text1: 'Tahap',
+                                    text2: 'PPJB'),
+                                DisabledItemsheet(
+                                    svgasset: 'assets/svg/dokumen.svg',
+                                    text1: 'Daftar',
+                                    text2: 'Dokumen'),
+                                DisabledItemsheet(
+                                    svgasset: 'assets/svg/sp3k.svg',
+                                    text1: 'Tahap',
+                                    text2: 'SP3K'),
+                                DisabledItemsheet(
+                                    svgasset: 'assets/svg/angsuran.svg',
+                                    text1: 'Bayar',
+                                    text2: 'Angsuran')
+                              ],
+                            ));
+                      },
                       colorBaseContainer: AppColor.baseWhite,
                       colorText1: AppColor.baseGreen,
                       colorText2: AppColor.baseGreen,

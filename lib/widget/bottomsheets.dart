@@ -5,9 +5,15 @@ import '../color.dart';
 import 'disabled_itemsheet.dart';
 
 class Bottomsheets extends StatelessWidget {
-  const Bottomsheets({
-    super.key,
-  });
+  Bottomsheets(
+      {super.key,
+      required this.tahapan,
+      required this.daftarmenu,
+      this.children});
+
+  String tahapan;
+  String daftarmenu;
+  List<Widget>? children;
 
   @override
   Widget build(BuildContext context) {
@@ -29,16 +35,16 @@ class Bottomsheets extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10)),
           ),
           const SizedBox(height: 20),
-          const Text(
-            "Tahap Pemesanan",
-            style: TextStyle(
+          Text(
+            tahapan,
+            style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w500,
                 color: AppColor.baseGreen),
           ),
-          const Text(
-            "Daftar menu tahap pemesanan",
-            style: TextStyle(fontSize: 12, color: AppColor.gray200),
+          Text(
+            daftarmenu,
+            style: const TextStyle(fontSize: 12, color: AppColor.gray200),
           ),
           const SizedBox(height: 15),
           const Divider(color: AppColor.gray100),
@@ -47,23 +53,11 @@ class Bottomsheets extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: GridView.count(
               crossAxisCount: 3,
+              mainAxisSpacing: 20,
               shrinkWrap: true,
               crossAxisSpacing: 15,
               physics: const NeverScrollableScrollPhysics(),
-              children: [
-                BadgeItemsheet(
-                    svgasset: 'assets/svg/bookingfee.svg',
-                    text1: 'Booking',
-                    text2: 'Fee'),
-                DisabledItemsheet(
-                    svgasset: 'assets/svg/empty-wallet-time.svg',
-                    text1: 'Pesanan',
-                    text2: 'Belum Bayar'),
-                DisabledItemsheet(
-                    svgasset: 'assets/svg/riwayatpesanan.svg',
-                    text1: 'Riwayat',
-                    text2: 'Pemesanan'),
-              ],
+              children: children ?? [],
             ),
           ),
           const SizedBox(height: 25),
