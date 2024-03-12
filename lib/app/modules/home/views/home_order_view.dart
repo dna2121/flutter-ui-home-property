@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_ui_home_property/app/modules/home/controllers/home_controller.dart';
 import 'package:flutter_ui_home_property/widget/appbar_frame.dart';
+import 'package:flutter_ui_home_property/widget/step_pesanan.dart';
 
 import 'package:get/get.dart';
 
@@ -83,6 +84,11 @@ class HomeOrderView extends GetView<HomeController> {
                 ],
               ),
 
+              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 25),
+                child: StepPesanan(activeStep: 2),
+              ),
               const SizedBox(height: 20),
 
               // slider
@@ -410,7 +416,7 @@ class HomeOrderView extends GetView<HomeController> {
                         Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(13),
-                        color: Colors.grey.shade200.withOpacity(0.3),
+                            color: Colors.grey.shade200.withOpacity(0.3),
                           ),
                         )
                       ]),
