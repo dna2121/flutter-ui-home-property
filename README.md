@@ -1,16 +1,7 @@
-# flutter_ui_home_property
+# ui_home_property
 
-A new Flutter project.
+Slicing from figma to code with the Flutter framework.
 
-## Getting Started
+## Demo
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://github.com/dna2121/flutter-ui-home-property/assets/80125535/43afd577-0a36-49b0-9d19-9eeb17a19d22" alt="drawing" width="200"/>
